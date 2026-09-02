@@ -1,0 +1,767 @@
+@import "tailwindcss";
+
+@theme {
+  /* ADERIQO brand palette */
+  --color-navy-950: #050a18;
+  --color-navy-900: #0a1128;
+  --color-navy-850: #0d1533;
+  --color-navy-800: #121b3d;
+  --color-navy-700: #1b2a55;
+  --color-navy-600: #26396e;
+  --color-ink: #0e1526;
+  --color-ink-soft: #43506d;
+  --color-mist: #f4f7fc;
+  --color-line: #e3e8f2;
+  --color-electric: #2e6bff;
+  --color-electric-dark: #1e4fd6;
+  --color-acyan: #2ad4e8;
+  --color-aviolet: #8b5cf6;
+  --color-amagenta: #e44bd4;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(10 17 40 / 0.06), 0 8px 24px rgb(10 17 40 / 0.08);
+  --shadow-lift: 0 4px 12px rgb(10 17 40 / 0.1), 0 24px 48px rgb(10 17 40 / 0.14);
+  --shadow-glow: 0 0 0 1px rgb(46 107 255 / 0.25), 0 12px 48px rgb(46 107 255 / 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Brand gradient: cyan → electric blue → violet → magenta */
+.brand-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-acyan) 0%,
+    var(--color-electric) 38%,
+    var(--color-aviolet) 72%,
+    var(--color-amagenta) 100%
+  );
+}
+
+.text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-acyan) 0%,
+    var(--color-electric) 38%,
+    var(--color-aviolet) 72%,
+    var(--color-amagenta) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle grid texture for dark hero sections */
+.hero-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, black 30%, transparent 75%);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Legal page typography */
+.prose-legal h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0e1526;
+}
+.prose-legal p,
+.prose-legal li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  color: #43506d;
+}
+.prose-legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose-legal strong {
+  color: #0e1526;
+}
+.prose-legal a {
+  color: #2e6bff;
+  font-weight: 500;
+}
+.prose-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   ADERIQO AI AVATAR
+   ============================================================ */
+.ai-avatar {
+  --avatar-size: clamp(140px, 28vw, 260px);
+  --avatar-glow: rgba(46, 107, 255, 0.25);
+  --avatar-core: rgba(42, 212, 232, 0.15);
+  position: relative;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+
+.ai-avatar__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-avatar__glow {
+  position: absolute;
+  inset: -15%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--avatar-glow) 0%, transparent 70%);
+  filter: blur(24px);
+  opacity: 0.7;
+  animation: ai-glow-breathe 4s ease-in-out infinite;
+}
+
+.ai-avatar--listening .ai-avatar__glow {
+  opacity: 1;
+  animation-duration: 2.5s;
+}
+
+.ai-avatar--thinking .ai-avatar__glow {
+  opacity: 1;
+  animation-duration: 1.8s;
+}
+
+.ai-avatar__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 212, 232, 0.15);
+  animation: ai-orbit 18s linear infinite;
+}
+
+.ai-avatar__ring--outer {
+  inset: 8%;
+  border-color: rgba(139, 92, 246, 0.12);
+  animation-duration: 24s;
+}
+
+.ai-avatar__ring--inner {
+  inset: 22%;
+  border-color: rgba(46, 107, 255, 0.18);
+  animation-duration: 14s;
+  animation-direction: reverse;
+}
+
+.ai-avatar--thinking .ai-avatar__ring {
+  animation-duration: 8s;
+}
+
+.ai-avatar__core {
+  position: relative;
+  width: 38%;
+  height: 38%;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 212, 232, 0.25) 0%,
+    rgba(46, 107, 255, 0.2) 40%,
+    rgba(139, 92, 246, 0.15) 70%,
+    rgba(228, 75, 212, 0.1) 100%
+  );
+  border: 1px solid rgba(42, 212, 232, 0.3);
+  box-shadow:
+    0 0 40px rgba(46, 107, 255, 0.2),
+    inset 0 0 30px rgba(42, 212, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ai-float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.ai-avatar--thinking .ai-avatar__core {
+  animation: ai-pulse 1.2s ease-in-out infinite;
+}
+
+.ai-avatar__inner {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 212, 232, 0.4) 0%,
+    rgba(46, 107, 255, 0.35) 50%,
+    rgba(139, 92, 246, 0.25) 100%
+  );
+  box-shadow: 0 0 20px rgba(46, 107, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-avatar__mark {
+  font-size: clamp(18px, 4vw, 32px);
+  background-image: linear-gradient(
+    135deg,
+    var(--color-acyan) 0%,
+    var(--color-electric) 50%,
+    var(--color-aviolet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.ai-avatar__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ai-avatar__particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-electric);
+  box-shadow: 0 0 6px var(--color-electric);
+  opacity: 0;
+  animation: ai-particle 3s ease-in-out infinite;
+}
+
+.ai-avatar--listening .ai-avatar__particle {
+  animation-duration: 2s;
+  opacity: 0.8;
+}
+
+.ai-avatar--thinking .ai-avatar__particle {
+  animation-duration: 1.2s;
+  opacity: 1;
+}
+
+/* Avatar state transitions */
+.ai-avatar,
+.ai-avatar__core,
+.ai-avatar__glow,
+.ai-avatar__ring {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduced motion */
+.ai-avatar--reduced .ai-avatar__core,
+.ai-avatar--reduced .ai-avatar__glow,
+.ai-avatar--reduced .ai-avatar__ring,
+.ai-avatar--reduced .ai-avatar__particle {
+  animation: none !important;
+}
+
+.ai-avatar--reduced .ai-avatar__core {
+  transform: none;
+}
+
+@keyframes ai-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+@keyframes ai-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.85; }
+}
+
+@keyframes ai-glow-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes ai-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ai-particle {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+  50% { opacity: 1; transform: translateY(-8px) scale(1); }
+}
+
+/* ============================================================
+   ADERIQO AI ASSISTANT VISUAL
+   Reusable AI identity for /ai, concierge, and future surfaces.
+   ============================================================ */
+.aderiqo-ai-visual {
+  --av-size: clamp(140px, 28vw, 260px);
+  --av-glow: rgba(46, 107, 255, 0.25);
+  position: relative;
+  width: var(--av-size);
+  height: var(--av-size);
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+
+.aderiqo-ai-visual--small {
+  --av-size: clamp(48px, 8vw, 72px);
+}
+
+.aderiqo-ai-visual__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aderiqo-ai-visual__glow {
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--av-glow) 0%, transparent 70%);
+  filter: blur(28px);
+  opacity: 0.7;
+  animation: av-glow-breathe 4s ease-in-out infinite;
+}
+
+.aderiqo-ai-visual--listening .aderiqo-ai-visual__glow,
+.aderiqo-ai-visual--thinking .aderiqo-ai-visual__glow,
+.aderiqo-ai-visual--responding .aderiqo-ai-visual__glow {
+  opacity: 1;
+  animation-duration: 2.2s;
+}
+
+.aderiqo-ai-visual--success .aderiqo-ai-visual__glow {
+  opacity: 0.9;
+  animation-duration: 3s;
+}
+
+.aderiqo-ai-visual__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 212, 232, 0.12);
+  animation: av-orbit 20s linear infinite;
+}
+
+.aderiqo-ai-visual__ring--outer {
+  inset: 6%;
+  border-color: rgba(139, 92, 246, 0.1);
+  animation-duration: 26s;
+}
+
+.aderiqo-ai-visual__ring--mid {
+  inset: 16%;
+  border-color: rgba(46, 107, 255, 0.14);
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+.aderiqo-ai-visual__ring--inner {
+  inset: 28%;
+  border-color: rgba(42, 212, 232, 0.18);
+  animation-duration: 12s;
+}
+
+.aderiqo-ai-visual--thinking .aderiqo-ai-visual__ring,
+.aderiqo-ai-visual--responding .aderiqo-ai-visual__ring {
+  animation-duration: 6s;
+}
+
+.aderiqo-ai-visual__core {
+  position: relative;
+  width: 36%;
+  height: 36%;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 212, 232, 0.22) 0%,
+    rgba(46, 107, 255, 0.18) 40%,
+    rgba(139, 92, 246, 0.12) 70%,
+    rgba(228, 75, 212, 0.08) 100%
+  );
+  border: 1px solid rgba(42, 212, 232, 0.28);
+  box-shadow:
+    0 0 50px rgba(46, 107, 255, 0.18),
+    inset 0 0 40px rgba(42, 212, 232, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: av-float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.aderiqo-ai-visual--thinking .aderiqo-ai-visual__core,
+.aderiqo-ai-visual--responding .aderiqo-ai-visual__core {
+  animation: av-pulse 1.2s ease-in-out infinite;
+}
+
+.aderiqo-ai-visual--success .aderiqo-ai-visual__core {
+  animation: av-success 0.6s ease-out forwards;
+}
+
+.aderiqo-ai-visual__inner {
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 212, 232, 0.35) 0%,
+    rgba(46, 107, 255, 0.3) 50%,
+    rgba(139, 92, 246, 0.2) 100%
+  );
+  box-shadow: 0 0 24px rgba(46, 107, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aderiqo-ai-visual__mark {
+  font-size: clamp(16px, 3.5vw, 28px);
+  background-image: linear-gradient(
+    135deg,
+    var(--color-acyan) 0%,
+    var(--color-electric) 50%,
+    var(--color-aviolet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.aderiqo-ai-visual__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.aderiqo-ai-visual__particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-electric);
+  box-shadow: 0 0 8px var(--color-electric);
+  opacity: 0;
+  animation: av-particle 3s ease-in-out infinite;
+}
+
+.aderiqo-ai-visual--listening .aderiqo-ai-visual__particle,
+.aderiqo-ai-visual--thinking .aderiqo-ai-visual__particle,
+.aderiqo-ai-visual--responding .aderiqo-ai-visual__particle {
+  animation-duration: 1.8s;
+  opacity: 0.9;
+}
+
+/* Smooth state transitions */
+.aderiqo-ai-visual,
+.aderiqo-ai-visual__core,
+.aderiqo-ai-visual__glow,
+.aderiqo-ai-visual__ring,
+.aderiqo-ai-visual__particle {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduced motion */
+.aderiqo-ai-visual--reduced .aderiqo-ai-visual__core,
+.aderiqo-ai-visual--reduced .aderiqo-ai-visual__glow,
+.aderiqo-ai-visual--reduced .aderiqo-ai-visual__ring,
+.aderiqo-ai-visual--reduced .aderiqo-ai-visual__particle {
+  animation: none !important;
+}
+
+.aderiqo-ai-visual--reduced .aderiqo-ai-visual__core {
+  transform: none;
+}
+
+@keyframes av-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+@keyframes av-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.8; }
+}
+
+@keyframes av-success {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes av-glow-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes av-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes av-particle {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+  50% { opacity: 1; transform: translateY(-10px) scale(1); }
+}
+
+/* ============================================================
+   ADERIQO AI FLOATING ASSISTANT (site-wide concierge)
+   ============================================================ */
+.aderiqo-ai-launcher {
+  position: fixed;
+  right: clamp(12px, 2vw, 20px);
+  bottom: clamp(12px, 2vw, 20px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 9999px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aderiqo-ai-launcher:hover {
+  transform: scale(1.08);
+}
+
+.aderiqo-ai-launcher:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 4px;
+  border-radius: 9999px;
+}
+
+.aderiqo-ai-launcher__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-white);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgb(5 10 24 / 0.6);
+  background: rgba(5, 10, 24, 0.55);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.aderiqo-ai-panel {
+  position: fixed;
+  right: clamp(12px, 2vw, 20px);
+  bottom: calc(clamp(56px, 10vw, 92px) + clamp(12px, 2vw, 20px));
+  z-index: 50;
+  width: calc(100vw - 2 * clamp(12px, 2vw, 20px));
+  max-width: 380px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 17, 40, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 48px rgb(5 10 24 / 0.35), 0 0 0 1px rgba(46, 107, 255, 0.12);
+  animation: av-panel-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aderiqo-ai-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aderiqo-ai-panel__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aderiqo-ai-panel__msg {
+  max-width: 88%;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.aderiqo-ai-panel__msg--user {
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+  background: rgba(46, 107, 255, 0.22);
+  color: var(--color-white);
+}
+
+.aderiqo-ai-panel__msg--bot {
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-slate-300);
+}
+
+.aderiqo-ai-panel__quick {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  color: var(--color-slate-400);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.aderiqo-ai-panel__quick:hover {
+  border-color: var(--color-acyan);
+  color: var(--color-white);
+}
+
+.aderiqo-ai-panel__footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aderiqo-ai-panel__input {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: var(--color-white);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.aderiqo-ai-panel__input::placeholder {
+  color: rgba(148, 163, 184, 0.6);
+}
+
+.aderiqo-ai-panel__input:focus {
+  border-color: var(--color-acyan);
+}
+
+.aderiqo-ai-panel__send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--color-acyan) 0%, var(--color-electric) 100%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.aderiqo-ai-panel__send:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.aderiqo-ai-panel__send:active {
+  transform: translateY(0);
+}
+
+@keyframes av-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .aderiqo-ai-panel {
+    right: 8px;
+    bottom: calc(52px + 8px);
+    left: 8px;
+    max-width: none;
+    width: auto;
+  }
+}
+
+/* ============================================================
+   AI EXPERIENCE — avatar + chat composition
+   ============================================================ */
+.ai-experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.ai-experience__chat {
+  width: 100%;
+  max-width: 640px;
+}
+
+@media (min-width: 768px) {
+  .ai-experience {
+    gap: clamp(20px, 4vw, 36px);
+  }
+}
