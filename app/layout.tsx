@@ -14,11 +14,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Aderiqo — AI-Powered CRM | CRM first. AI makes the CRM intelligent.",
-    template: "%s | Aderiqo",
+    default: "Aderiqo — AI-Powered B2B Sales Platform",
+    template: "%s",
   },
   description:
-    "Aderiqo is a connected B2B sales platform by ArdenzaTech. Bring companies, contacts, pipeline, tasks, calendar, email, prospecting and revenue intelligence together in one workspace — with AI built into the CRM.",
+    "Aderiqo is an AI-powered B2B sales platform built and operated by ArdenzaTech. Bring companies, contacts, pipeline, tasks, calendar, email, prospecting and revenue intelligence together in one connected workspace.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48 256x256" },

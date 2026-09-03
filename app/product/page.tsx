@@ -12,9 +12,9 @@ import { Reveal } from "@/components/marketing/reveal";
 import { DashboardMock, AiMock, IntelligenceMock } from "@/components/marketing/mockups";
 
 export const metadata = pageMeta({
-  title: "Product — The Aderiqo Platform",
+  title: "Aderiqo Platform — Connected B2B Sales Workspace",
   description:
-    "Aderiqo is an AI-powered CRM and business operating platform: CRM, sales, tasks, calendar, email, prospecting, revenue intelligence and AI-native workflows in one workspace.",
+    "Aderiqo is an AI-powered B2B sales platform: CRM, pipeline, tasks, calendar, email, prospecting, revenue intelligence and AI-assisted workflows in one connected workspace.",
   path: "/product",
 });
 

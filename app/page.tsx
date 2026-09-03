@@ -19,9 +19,9 @@ import {
 } from "@/components/marketing/mockups";
 
 export const metadata = pageMeta({
-  title: "Aderiqo — AI-Powered CRM",
+  title: "Aderiqo — AI-Powered B2B Sales Platform",
   description:
-    "Stop running your sales operation across disconnected tools. Aderiqo brings customers, pipeline, tasks, calendar, email, prospecting and revenue intelligence into one intelligent workspace — with AI built into the workflow.",
+    "Aderiqo is an AI-powered B2B sales platform built and operated by ArdenzaTech. Bring companies, contacts, pipeline, tasks, calendar, email, prospecting and revenue intelligence together in one connected workspace.",
   path: "/",
 });
 
@@ -82,6 +82,38 @@ export default function HomePage() {
         "@id": `${SITE_URL}/#organization`,
         name: "ArdenzaTech",
         url: ARDENZATECH_URL,
+        description:
+          "ArdenzaTech builds practical software for how businesses operate. Aderiqo is its flagship product.",
+        sameAs: [SITE_URL],
+      },
+      {
+        "@type": "Brand",
+        "@id": `${SITE_URL}/#brand`,
+        name: "Aderiqo",
+        description:
+          "Aderiqo is an AI-powered B2B sales platform built and operated by ArdenzaTech.",
+        url: SITE_URL,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Aderiqo",
+        url: SITE_URL,
+        description:
+          "Aderiqo is an AI-powered B2B sales platform: CRM, prospecting, pipeline execution, revenue intelligence and AI-assisted workflows in one connected workspace.",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        inLanguage: "en",
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/`,
+        name: "Aderiqo — AI-Powered B2B Sales Platform",
+        url: SITE_URL,
+        description:
+          "Aderiqo is an AI-powered B2B sales platform built and operated by ArdenzaTech. Bring companies, contacts, pipeline, tasks, calendar, email, prospecting and revenue intelligence together in one connected workspace.",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#brand` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {
         "@type": "SoftwareApplication",
@@ -90,7 +122,8 @@ export default function HomePage() {
         operatingSystem: "Web",
         url: SITE_URL,
         description:
-          "Aderiqo is a connected B2B sales platform: CRM, prospecting, pipeline execution, revenue intelligence and AI-assisted workflows in one workspace. Built by ArdenzaTech.",
+          "Aderiqo is an AI-powered B2B sales platform: CRM, prospecting, pipeline execution, revenue intelligence and AI-assisted workflows in one connected workspace.",
+        brand: { "@id": `${SITE_URL}/#brand` },
         publisher: { "@id": `${SITE_URL}/#organization` },
         offers: {
           "@type": "Offer",

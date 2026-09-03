@@ -3,9 +3,9 @@ import { PageHero, Section, SectionHeading, CtaBanner } from "@/components/marke
 import { Reveal } from "@/components/marketing/reveal";
 
 export const metadata = pageMeta({
-  title: "About — Aderiqo by ArdenzaTech",
+  title: "About Aderiqo — Built by ArdenzaTech",
   description:
-    "Aderiqo is an AI-powered CRM and business operating platform developed by ArdenzaTech — formerly known as Clovexa during early development. Learn about our product vision and the philosophy behind AI-powered CRM.",
+    "Aderiqo is an AI-powered B2B sales platform developed by ArdenzaTech. Learn about the product vision, the connected-sales philosophy, and the team behind Aderiqo.",
   path: "/about",
 });
 
@@ -15,7 +15,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="We're building the CRM we always wanted to use."
-        subtitle="Aderiqo is an AI-powered CRM and business operating platform developed by ArdenzaTech — built on a simple conviction: the CRM should do the work, not just store it."
+        subtitle="Aderiqo is an AI-powered B2B sales platform developed by ArdenzaTech — built on a simple conviction: the CRM should do the work, not just store it."
       />
 
       <Section>
@@ -23,7 +23,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="The company"
             title="Aderiqo is developed by ArdenzaTech."
-            subtitle="ArdenzaTech builds practical software for how businesses actually operate. Aderiqo is its flagship product: a business operating platform that starts with disciplined CRM foundations and makes them intelligent."
+            subtitle="ArdenzaTech builds practical software for how businesses actually operate. Aderiqo is its flagship product: a connected sales platform that starts with disciplined CRM foundations and makes them intelligent."
           />
           <div className="mt-10 space-y-6 text-base leading-relaxed text-ink-soft">
             <p>
@@ -44,6 +44,7 @@ export default function AboutPage() {
               more about the company behind the product,{" "}
               <a
                 href={ARDENZATECH_URL}
+                rel="noopener"
                 className="font-semibold text-electric hover:underline"
               >
                 explore ArdenzaTech

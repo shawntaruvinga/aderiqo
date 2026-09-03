@@ -10,20 +10,20 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Logo dark />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
-              AI-powered CRM and business operating platform. CRM first. AI makes the CRM
-              intelligent.
+              Aderiqo is an AI-powered B2B sales platform. CRM, prospecting, pipeline execution,
+              revenue intelligence and AI-assisted workflows in one connected workspace.
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
               Aderiqo is built by{" "}
               <a
                 href={ARDENZATECH_URL}
+                rel="noopener"
                 className="font-semibold text-slate-200 transition hover:text-white"
               >
                 ArdenzaTech
                 <span aria-hidden> ↗</span>
               </a>
-              , a technology company building intelligent software and delivering enterprise
-              technology solutions.
+              , a technology company building practical software for how businesses operate.
             </p>
           </div>
           {FOOTER_LINKS.map((group) => (
