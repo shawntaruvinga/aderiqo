@@ -284,10 +284,10 @@ export function CtaBanner({
         <p className="mx-auto mt-4 text-2xl font-semibold text-gradient sm:text-3xl">Meet Aderiqo.</p>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">{subtitle}</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-          <PrimaryButton href="/demo" external className="min-w-44 justify-center">
+          <PrimaryButton href="/early-access" className="min-w-44 justify-center">
             Get started
           </PrimaryButton>
-          <SecondaryButton href="/contact" dark className="min-w-44 justify-center">
+          <SecondaryButton href="/demo" dark className="min-w-44 justify-center">
             Book a demo
           </SecondaryButton>
         </div>

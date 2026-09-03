@@ -23,6 +23,7 @@ const routes = [
   "/about",
   "/contact",
   "/demo",
+  "/early-access",
   "/terms",
   "/privacy",
 ];

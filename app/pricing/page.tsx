@@ -13,8 +13,8 @@ export const metadata = pageMeta({
 const OPTIONS = [
   {
     title: "Get started",
-    body: "Create your organization in the Aderiqo application and explore the CRM, AI and everyday workflows with your own data.",
-    action: { label: "Get started", href: "/demo" },
+    body: "Aderiqo is in its final refinement phase. Register your interest for early access and our team will be in touch when the platform is ready for you.",
+    action: { label: "Join early access", href: "/early-access" },
     highlight: false,
   },
   {

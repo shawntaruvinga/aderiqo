@@ -44,11 +44,11 @@ export default function DemoPage() {
               ))}
             </ol>
             <p className="mt-6 text-sm text-ink-soft">
-              Prefer to explore on your own?{" "}
-              <a href="/demo" className="font-medium text-electric hover:underline">
-                Get started
+              Want to use Aderiqo right away?{" "}
+              <a href="/early-access" className="font-medium text-electric hover:underline">
+                Join early access
               </a>{" "}
-              in the Aderiqo application and see it with your own data.
+              and our team will be in touch when the platform is ready for you.
             </p>
           </div>
           <LeadForm variant="demo" />

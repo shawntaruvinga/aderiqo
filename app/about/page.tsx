@@ -1,4 +1,4 @@
-import { pageMeta } from "@/lib/site";
+import { pageMeta, ARDENZATECH_URL } from "@/lib/site";
 import { PageHero, Section, SectionHeading, CtaBanner } from "@/components/marketing/ui";
 import { Reveal } from "@/components/marketing/reveal";
 
@@ -37,6 +37,19 @@ export default function AboutPage() {
               calendar, email, prospecting and revenue intelligence share one data model. That shared
               foundation is what makes AI genuinely useful: when Aderiqo AI acts, it acts on the same
               connected records your team works in — not on a bolt-on chatbot's guess.
+            </p>
+            <p>
+              Aderiqo represents ArdenzaTech's product-focused approach: helping organizations manage
+              relationships, sales, operations and revenue in one intelligent workspace. To learn
+              more about the company behind the product,{" "}
+              <a
+                href={ARDENZATECH_URL}
+                className="font-semibold text-electric hover:underline"
+              >
+                explore ArdenzaTech
+                <span aria-hidden> ↗</span>
+              </a>
+              .
             </p>
           </div>
         </div>

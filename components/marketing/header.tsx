@@ -148,12 +148,12 @@ function DesktopCtas() {
       >
         Book a demo
       </Link>
-      <a
-        href={appPath("/register")}
+      <Link
+        href="/early-access"
         className="brand-gradient rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
       >
         Get started
-      </a>
+      </Link>
     </div>
   );
 }
@@ -224,12 +224,13 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
           >
             Book a demo
           </Link>
-          <a
-            href={appPath("/register")}
+          <Link
+            href="/early-access"
+            onClick={onNavigate}
             className="brand-gradient rounded-lg px-4 py-3 text-center text-sm font-semibold text-white"
           >
             Get started
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

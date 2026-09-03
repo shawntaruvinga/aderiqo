@@ -20,8 +20,9 @@ export default function PrivacyPage() {
           <p className="text-sm text-ink-soft">Last updated: January 2026</p>
           <h2>1. Overview</h2>
           <p>
-            This policy explains how ArdenzaTech (&quot;we&quot;, &quot;us&quot;) handles personal
-            data in connection with the Aderiqo platform and the aderiqo.com website.
+            This policy explains how ArdenzaTech (&quot;we&quot;, &quot;us&quot;), the company
+            behind Aderiqo, handles personal data in connection with the Aderiqo platform and the
+            aderiqo.ardenzatech.com website.
           </p>
           <h2>2. Data we collect</h2>
           <ul>

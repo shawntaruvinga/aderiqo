@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FOOTER_LINKS, appPath } from "@/lib/site";
+import { FOOTER_LINKS, appPath, ARDENZATECH_URL } from "@/lib/site";
 import { Logo } from "./ui";
 
 export function Footer() {
@@ -13,8 +13,17 @@ export function Footer() {
               AI-powered CRM and business operating platform. CRM first. AI makes the CRM
               intelligent.
             </p>
-            <p className="mt-4 text-sm text-slate-400">
-              An AI-powered CRM by <span className="font-semibold text-slate-200">ArdenzaTech</span>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+              Aderiqo is built by{" "}
+              <a
+                href={ARDENZATECH_URL}
+                className="font-semibold text-slate-200 transition hover:text-white"
+              >
+                ArdenzaTech
+                <span aria-hidden> ↗</span>
+              </a>
+              , a technology company building intelligent software and delivering enterprise
+              technology solutions.
             </p>
           </div>
           {FOOTER_LINKS.map((group) => (

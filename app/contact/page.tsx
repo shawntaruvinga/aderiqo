@@ -40,7 +40,8 @@ export default function ContactPage() {
             <div className="mt-8 rounded-xl border border-line bg-mist p-6">
               <p className="text-sm font-semibold text-ink">Aderiqo by ArdenzaTech</p>
               <p className="mt-1.5 text-sm text-ink-soft">
-                AI-powered CRM and business operating platform.
+                AI-powered CRM and business operating platform, built by ArdenzaTech — a technology
+                company building intelligent software.
               </p>
             </div>
           </div>

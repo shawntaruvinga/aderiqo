@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.ardenzatech.com";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aderiqo.com";
+/** Parent company website (informational/trust destination, not a conversion funnel). */
+export const ARDENZATECH_URL = "https://ardenzatech.com";
 
 export function appPath(path: string) {
   return `${APP_URL}${path}`;

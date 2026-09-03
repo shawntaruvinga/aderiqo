@@ -1,4 +1,4 @@
-import { pageMeta } from "@/lib/site";
+import { pageMeta, ARDENZATECH_URL } from "@/lib/site";
 import { PageHero, Section, SectionHeading, CtaBanner } from "@/components/marketing/ui";
 import { Reveal } from "@/components/marketing/reveal";
 
@@ -79,6 +79,18 @@ export default function SecurityPage() {
           ))}
         </div>
         <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed text-ink-soft">
+          Aderiqo is developed and maintained by{" "}
+          <a
+            href={ARDENZATECH_URL}
+            className="font-semibold text-ink transition hover:text-electric"
+          >
+            ArdenzaTech
+            <span aria-hidden> ↗</span>
+          </a>
+          , combining software engineering with expertise across enterprise technology, cloud,
+          cybersecurity and infrastructure.
+        </p>
+        <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-ink-soft">
           Note: Aderiqo is built with enterprise security principles. We make our security posture
           transparent and available on request — we do not claim third-party certifications on this
           page. If your procurement process requires specific documentation,{" "}
