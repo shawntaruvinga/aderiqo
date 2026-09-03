@@ -28,13 +28,13 @@ export default function ContactPage() {
               </li>
               <li className="flex gap-3">
                 <span aria-hidden className="brand-gradient mt-1 h-1.5 w-1.5 shrink-0 rounded-full" />
-                If you'd like to see the product, we'll suggest a{" "}
+                If you&apos;d like to see the product, we&apos;ll suggest a{" "}
                 <a href="/demo" className="font-medium text-electric hover:underline">guided demo</a>{" "}
                 tailored to your use cases.
               </li>
               <li className="flex gap-3">
                 <span aria-hidden className="brand-gradient mt-1 h-1.5 w-1.5 shrink-0 rounded-full" />
-                Security or procurement questions? We're happy to walk through our architecture with you.
+                Security or procurement questions? We&apos;re happy to walk through our architecture with you.
               </li>
             </ul>
             <div className="mt-8 rounded-xl border border-line bg-mist p-6">

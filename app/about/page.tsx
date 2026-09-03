@@ -27,7 +27,7 @@ export default function AboutPage() {
           />
           <div className="mt-10 space-y-6 text-base leading-relaxed text-ink-soft">
             <p>
-              Most teams don't suffer from a lack of tools — they suffer from fragmentation. Customer
+              Most teams don&apos;t suffer from a lack of tools — they suffer from fragmentation. Customer
               records in one place, conversations in another, tasks in a third, reporting in a
               fourth. Every handoff loses context, and every context loss costs time, follow-up and
               eventually revenue.
@@ -36,10 +36,10 @@ export default function AboutPage() {
               Aderiqo takes the opposite approach. Companies, contacts, opportunities, tasks,
               calendar, email, prospecting and revenue intelligence share one data model. That shared
               foundation is what makes AI genuinely useful: when Aderiqo AI acts, it acts on the same
-              connected records your team works in — not on a bolt-on chatbot's guess.
+              connected records your team works in — not on a bolt-on chatbot&apos;s guess.
             </p>
             <p>
-              Aderiqo represents ArdenzaTech's product-focused approach: helping organizations manage
+              Aderiqo represents ArdenzaTech&apos;s product-focused approach: helping organizations manage
               relationships, sales, operations and revenue in one intelligent workspace. To learn
               more about the company behind the product,{" "}
               <a

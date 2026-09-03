@@ -4,9 +4,9 @@ import { AiExperience } from "@/components/marketing/ai-experience";
 import { Reveal } from "@/components/marketing/reveal";
 
 export const metadata = pageMeta({
-  title: "Aderiqo AI — Conversational CRM",
+  title: "Aderiqo AI — AI embedded in your CRM",
   description:
-    "Aderiqo AI is a CRM-native assistant: natural-language CRM actions, context awareness, multi-step workflows, relationship intelligence, memory and confirmation before sensitive actions. Ask anything about Aderiqo.",
+    "Aderiqo AI is CRM-native: natural-language CRM actions, multi-step workflows on real records, conversation context and confirmation before sensitive actions. Ask about the Aderiqo platform.",
   path: "/ai",
 });
 
@@ -129,7 +129,7 @@ export default function AiPage() {
                   <p className="text-xs font-semibold tracking-wide text-ink-soft uppercase">
                     {item.problem}
                   </p>
-                  <p className="mt-1 text-sm italic text-ink-soft">"{item.signal}"</p>
+                  <p className="mt-1 text-sm italic text-ink-soft">&ldquo;{item.signal}&rdquo;</p>
                   <div className="mt-4 flex items-start gap-3 rounded-xl bg-mist p-4">
                     <span aria-hidden className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-electric/10 text-[11px] font-bold text-electric">
                       ✓
@@ -162,7 +162,7 @@ export default function AiPage() {
                 <p className="text-xs font-semibold tracking-wide text-electric uppercase">
                   {cap.category}
                 </p>
-                <p className="mt-2 text-lg font-semibold text-ink">"{cap.question}"</p>
+                <p className="mt-2 text-lg font-semibold text-ink">&ldquo;{cap.question}&rdquo;</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{cap.description}</p>
               </div>
             </Reveal>
@@ -212,7 +212,7 @@ export default function AiPage() {
                   <span className="text-xs font-semibold tracking-wide text-electric uppercase">You</span>
                 </div>
                 <div className="rounded-xl rounded-br-sm bg-electric/10 px-4 py-3 text-sm text-ink">
-                  "Create a contact for John at Acme. He&apos;s the CTO and his email is john@acme.com."
+                  &ldquo;Create a contact for John at Acme. He&apos;s the CTO and his email is john@acme.com.&rdquo;
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-xs font-semibold tracking-wide text-acyan uppercase">Aderiqo AI</span>

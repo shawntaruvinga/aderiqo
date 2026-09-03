@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Aderiqo",
   },
   description:
-    "Aderiqo is an AI-powered CRM and business operating platform by ArdenzaTech. Bring customers, sales, conversations, tasks and business intelligence together in one intelligent workspace.",
+    "Aderiqo is a connected B2B sales platform by ArdenzaTech. Bring companies, contacts, pipeline, tasks, calendar, email, prospecting and revenue intelligence together in one workspace — with AI built into the CRM.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48 256x256" },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Aderiqo",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Aderiqo" }],
+    images: [{ url: "/og.png", width: 1254, height: 1254, alt: "Aderiqo — AI-powered CRM" }],
   },
 };
 

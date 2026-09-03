@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pageMeta } from "@/lib/site";
+import { pageMeta, SITE_URL, ARDENZATECH_URL } from "@/lib/site";
 import { Reveal } from "@/components/marketing/reveal";
 import {
   Section,
@@ -74,8 +74,38 @@ const AI_EXAMPLES = [
 ];
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "ArdenzaTech",
+        url: ARDENZATECH_URL,
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Aderiqo",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        url: SITE_URL,
+        description:
+          "Aderiqo is a connected B2B sales platform: CRM, prospecting, pipeline execution, revenue intelligence and AI-assisted workflows in one workspace. Built by ArdenzaTech.",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        offers: {
+          "@type": "Offer",
+          description:
+            "Plans are shaped with each customer. Contact sales or book a demo for pricing.",
+        },
+      },
+    ],
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* ------------------------------------------------ HERO */}
       <section className="relative overflow-hidden bg-navy-950 text-white">
         <div aria-hidden className="hero-grid absolute inset-0" />
@@ -85,18 +115,14 @@ export default function HomePage() {
         />
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:px-8 lg:pt-24 lg:pb-28">
           <div>
-            <p className="text-5xl font-bold tracking-tight text-gradient sm:text-6xl lg:text-7xl lg:leading-[1.05]">
-              ADERIQO
-            </p>
-            <div className="mt-3" />
-            <Eyebrow dark>AI-powered CRM · by ArdenzaTech</Eyebrow>
+      <Eyebrow dark>AI-powered B2B sales platform · by ArdenzaTech</Eyebrow>
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-[3.6rem] lg:leading-[1.08]">
               Your sales workflow shouldn&apos;t{" "}
               <span className="text-gradient">live in ten different tools.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
               Aderiqo brings your customers, pipeline, tasks, calendar, email, prospecting and
-              revenue intelligence into one intelligent workspace — with AI built directly into
+              revenue intelligence into one connected sales workspace — with AI built directly into
               the workflow.
             </p>
             <p className="mt-3 text-sm font-semibold tracking-wide text-slate-400 uppercase">
@@ -214,7 +240,7 @@ export default function HomePage() {
           </div>
         </Reveal>
         <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ink-soft">
-          Aderiqo doesn't claim to replace every tool you use. It stops forcing your team to work
+          Aderiqo doesn&apos;t claim to replace every tool you use. It stops forcing your team to work
           across disconnected systems for the same customer — by making the core sales workflow one
           connected workspace.
         </p>

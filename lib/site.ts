@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.ardenzatech.com";
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aderiqo.com";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aderiqo.ardenzatech.com";
 /** Parent company website (informational/trust destination, not a conversion funnel). */
 export const ARDENZATECH_URL = "https://ardenzatech.com";
 
@@ -29,13 +30,13 @@ export function pageMeta({
       url,
       siteName: "Aderiqo",
       type: "website",
-      images: [{ url: "/logo.png", width: 512, height: 512, alt: "Aderiqo" }],
+      images: [{ url: "/og.png", width: 1254, height: 1254, alt: "Aderiqo — AI-powered CRM" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | Aderiqo`,
       description,
-      images: ["/logo.png"],
+      images: ["/og.png"],
     },
   };
 }
@@ -48,13 +49,16 @@ export const NAV: NavItem[] = [
     label: "Product",
     href: "/product",
     children: [
-      { label: "Platform overview", href: "/product", description: "One intelligent workspace for your whole business" },
-      { label: "Aderiqo AI", href: "/ai", description: "Conversational CRM that works with you" },
+      { label: "Platform overview", href: "/product", description: "The connected sales operating environment" },
+      { label: "Aderiqo AI", href: "/ai", description: "AI embedded in the CRM workflow" },
       { label: "CRM", href: "/crm", description: "Companies, contacts and opportunities" },
-      { label: "Sales", href: "/sales", description: "Pipeline and deal management" },
-      { label: "Intelligence", href: "/intelligence", description: "Revenue and business insights" },
-      { label: "Integrations", href: "/integrations", description: "Connected workflows" },
-      { label: "Security", href: "/security", description: "Enterprise security principles" },
+      { label: "Pipeline & deals", href: "/sales", description: "Opportunity management for sales teams" },
+      { label: "Companies & contacts", href: "/companies", description: "Customer records in one place" },
+      { label: "Tasks & calendar", href: "/tasks", description: "Follow-ups with owners and due dates" },
+      { label: "Email in context", href: "/email", description: "Customer communication on the record" },
+      { label: "Prospecting", href: "/prospecting", description: "Discover and capture new accounts" },
+      { label: "Revenue intelligence", href: "/intelligence", description: "Insight from live pipeline activity" },
+      { label: "All features", href: "/features", description: "The complete capability list" },
     ],
   },
   {
@@ -73,30 +77,18 @@ export const NAV: NavItem[] = [
     ],
   },
   {
-    label: "Features",
-    href: "/features",
-    children: [
-      { label: "Companies", href: "/companies" },
-      { label: "Contacts", href: "/contacts" },
-      { label: "Opportunities & sales", href: "/sales" },
-      { label: "Tasks", href: "/tasks" },
-      { label: "Calendar", href: "/calendar" },
-      { label: "Email", href: "/email" },
-      { label: "Prospecting", href: "/prospecting" },
-      { label: "Revenue intelligence", href: "/intelligence" },
-    ],
-  },
-  { label: "Pricing", href: "/pricing" },
-  {
     label: "Resources",
     href: "/resources",
     children: [
       { label: "Resource hub", href: "/resources" },
-      { label: "Platform overview", href: "/product" },
+      { label: "All features", href: "/features" },
+      { label: "Integrations", href: "/integrations" },
       { label: "See a demo", href: "/demo" },
       { label: "Contact us", href: "/contact" },
     ],
   },
+  { label: "Security", href: "/security" },
+  { label: "Pricing", href: "/pricing" },
   {
     label: "Company",
     href: "/about",

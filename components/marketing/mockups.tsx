@@ -9,6 +9,9 @@ export function AppWindow({ title, children }: { title: string; children: ReactN
         <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-aviolet/70" />
         <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-acyan/70" />
         <span className="ml-3 text-xs font-medium text-slate-400">{title}</span>
+          <span className="ml-auto rounded-full border border-white/15 bg-white/[0.06] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-slate-300">
+            Demo workspace
+          </span>
       </div>
       <div className="flex text-[11px] leading-normal text-slate-300">
         <aside aria-hidden className="hidden w-36 shrink-0 border-r border-white/10 bg-navy-950/60 p-3 sm:block">
@@ -66,7 +69,7 @@ export function DashboardMock() {
         {[
           ["Acme Industries", "Proposal sent", "text-acyan"],
           ["Northwind Group", "Discovery call", "text-aviolet"],
-          ["Contoso Retail", "Negotiation", "text-amagenta"],
+          ["Brightline Retail", "Negotiation", "text-amagenta"],
         ].map(([name, stage, tone]) => (
           <div key={name} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2">
             <span className="font-medium text-white">{name}</span>
@@ -99,7 +102,7 @@ export function AiMock() {
           <ul className="mt-1 list-inside list-disc space-y-0.5 text-slate-400">
             <li>Acme Industries — €120K (proposal sent, strong engagement)</li>
             <li>Northwind Group — €85K (negotiation stage)</li>
-            <li>Contoso Retail — €60K (follow-up scheduled Friday)</li>
+            <li>Brightline Retail — €60K (follow-up scheduled Friday)</li>
           </ul>
         </div>
         <div className="mt-2 flex items-center gap-2 rounded-lg border border-white/10 bg-navy-950/60 px-3 py-2">
@@ -114,7 +117,7 @@ export function AiMock() {
 export function PipelineMock() {
   const cols: [string, [string, string][]][] = [
     ["Discovery", [["Northwind Group", "€45K"], ["Helios Ltd", "€22K"]]],
-    ["Proposal", [["Acme Industries", "€120K"], ["Contoso Retail", "€60K"]]],
+    ["Proposal", [["Acme Industries", "€120K"], ["Brightline Retail", "€60K"]]],
     ["Negotiation", [["Vertex Partners", "€85K"]]],
   ];
   return (
@@ -246,7 +249,7 @@ export function ContactsMock() {
   const rows: [string, string, string][] = [
     ["John Meyer", "Acme Industries", "Operations Director"],
     ["Sarah Chen", "Northwind Group", "Head of Procurement"],
-    ["David Okafor", "Contoso Retail", "IT Manager"],
+    ["David Okafor", "Brightline Retail", "IT Manager"],
     ["Lena Fischer", "Vertex Partners", "Managing Partner"],
   ];
   return (
@@ -375,7 +378,7 @@ export function HeroMock() {
           {[
             ["Acme Industries", "€120K", "w-[85%]"],
             ["Northwind Group", "€85K", "w-[60%]"],
-            ["Contoso Retail", "€60K", "w-[40%]"],
+            ["Brightline Retail", "€60K", "w-[40%]"],
           ].map(([name, value, w]) => (
             <div key={name} className="text-[11px]">
               <div className="flex justify-between text-slate-300">

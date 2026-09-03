@@ -53,7 +53,7 @@ export default function PrivacyPage() {
           </p>
           <h2>5. AI processing</h2>
           <p>
-            Aderiqo AI processes your organization's CRM data to provide AI features within your
+            Aderiqo AI processes your organization&apos;s CRM data to provide AI features within your
             workspace. AI actions on sensitive records require user confirmation, and AI activity is
             auditable within the platform.
           </p>

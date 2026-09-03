@@ -39,7 +39,7 @@ export default function TermsPage() {
           <h2>4. Acceptable use</h2>
           <p>
             You agree not to use Aderiqo for unlawful purposes, to infringe the rights of others, or
-            to attempt to gain unauthorized access to the platform or other customers' data.
+            to attempt to gain unauthorized access to the platform or other customers&apos; data.
           </p>
           <h2>5. AI features</h2>
           <p>

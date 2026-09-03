@@ -108,7 +108,7 @@ export default function SolutionsPage() {
         </div>
         <div className="mt-12 text-center">
           <p className="text-ink-soft">
-            Don't see your industry? <Link href="/contact" className="font-semibold text-electric hover:underline">Tell us about your workflows</Link> — we'll show you how Aderiqo fits.
+            Don&apos;t see your industry? <Link href="/contact" className="font-semibold text-electric hover:underline">Tell us about your workflows</Link> — we&apos;ll show you how Aderiqo fits.
           </p>
         </div>
       </Section>
