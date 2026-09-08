@@ -306,7 +306,7 @@ export function Logo({ dark = false, className = "" }: { dark?: boolean; classNa
       className={`inline-flex items-center gap-2.5 ${className}`}
       aria-label="Aderiqo home"
     >
-      <Image src="/logo.png" alt="" width={36} height={36} className="h-9 w-9" priority />
+      <Image src="/favicon.png" alt="" width={36} height={36} className="h-9 w-9" priority />
       <span className={`text-lg font-bold tracking-tight ${dark ? "text-white" : "text-ink"}`}>
         ADERIQO
       </span>

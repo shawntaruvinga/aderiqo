@@ -25,21 +25,6 @@ export const metadata = pageMeta({
   path: "/",
 });
 
-const MODULES = [
-  "CRM", "AI", "Sales", "Prospecting", "Tasks", "Calendar", "Email", "Revenue Intelligence",
-];
-
-const FRAGMENTS = [
-  { icon: "👤", label: "Customer records" },
-  { icon: "✉️", label: "Emails" },
-  { icon: "📅", label: "Meetings" },
-  { icon: "✅", label: "Tasks" },
-  { icon: "📝", label: "Notes" },
-  { icon: "💼", label: "Opportunities" },
-  { icon: "📊", label: "Reports" },
-  { icon: "🔁", label: "Follow-ups" },
-];
-
 const MOMENTS = [
   { q: "Where did that prospect's information go?", a: "Scattered across spreadsheets, inboxes and notes — nobody can find the latest context." },
   { q: "Did anyone follow up with them?", a: "A prospect said “next week”. Now it's three weeks later and the trail went cold." },
@@ -47,14 +32,6 @@ const MOMENTS = [
   { q: "Why is this opportunity still in the same stage?", a: "Nobody updated the record — updating the CRM is the last thing on a busy rep's list." },
   { q: "Where is the latest customer conversation?", a: "It's in someone's inbox, not attached to the customer everyone else works from." },
   { q: "Why are we updating five different systems?", a: "Every tool has its own version of the customer — and your team retypes all of them." },
-];
-
-const DAY = [
-  { time: "9:00 AM", title: "See what needs your attention.", desc: "Open tasks, today's meetings and opportunities waiting on you — in one view, not five tabs." },
-  { time: "10:00 AM", title: "Update an opportunity without digging through screens.", desc: "Move a deal, log a note and set the next step on the same record your team already works from." },
-  { time: "11:30 AM", title: "Ask Aderiqo AI to do the busywork.", desc: "“Create a task to follow up with Acme Corp next Tuesday.” Plain language in, connected CRM records out." },
-  { time: "2:00 PM", title: "Review what actually moved today.", desc: "Pipeline activity, new conversations and changed deals — visible as they happen, not at month-end." },
-  { time: "4:30 PM", title: "End the day knowing nothing was dropped.", desc: "Every follow-up has an owner and a due date, tied to the customer it belongs to." },
 ];
 
 const AUDIENCES = [
@@ -71,6 +48,51 @@ const AI_EXAMPLES = [
   "Schedule a meeting with Sarah.",
   "Update this opportunity to negotiation.",
   "Create Acme, add John as a contact, and schedule a follow-up.",
+];
+
+const FUTURE_EXAMPLES = [
+  "Prepare my day — what needs my attention?",
+  "Draft follow-up emails for the opportunities at risk.",
+  "Turn this week's customer wins into three LinkedIn posts.",
+  "Plan content for next week based on what we delivered.",
+  "Summarize my pipeline and suggest priorities.",
+];
+
+const STEPS = [
+  ["1", "Connect your business", "Create your organization and bring your companies, contacts and opportunities into one workspace."],
+  ["2", "Aderiqo understands your context", "AI learns your customers, pipeline and priorities — so recommendations are grounded in your actual business."],
+  ["3", "AI identifies what matters", "From pipeline risks to follow-ups, Aderiqo surfaces the work that moves revenue forward."],
+  ["4", "You take action with Aderiqo", "Create records, update deals, schedule meetings and run workflows — with AI handling the busywork."],
+];
+
+const MODULES = [
+  { group: "CRM", icon: "🏢", items: ["Companies", "Contacts", "Opportunities"], desc: "Centralized records with relationship and revenue context on every account.", href: "/crm" },
+  { group: "Sales", icon: "📈", items: ["Pipeline", "Prospecting", "Revenue Intelligence"], desc: "Find the right companies, manage deals and understand what's moving.", href: "/sales" },
+  { group: "Productivity", icon: "⚡", items: ["Tasks", "Calendar", "Follow-ups"], desc: "Work that moves deals forward, tied to the customers it belongs to.", href: "/tasks" },
+  { group: "Intelligence", icon: "🤖", items: ["Aderiqo AI", "Insights"], desc: "Conversational CRM that creates records, answers questions and manages work with you.", href: "/ai" },
+];
+
+const CURRENT_CAPABILITIES = [
+  "AI-powered CRM: companies, contacts, opportunities and pipeline",
+  "Aderiqo AI acting on real CRM records with confirmation",
+  "Prospecting: discover, research and capture new accounts",
+  "Tasks, calendar and email connected to customer records",
+  "Revenue intelligence from live pipeline activity",
+  "Organization isolation, role-based access and audit logging",
+];
+
+const COMING_NEXT = [
+  "Deeper AI actions across email and communication",
+  "Expanded productivity and workflow automation",
+  "Content assistance tied to business activity",
+  "More autonomous AI workflows with user control",
+];
+
+const LONG_TERM = [
+  "Intelligent business automation across functions",
+  "Connected marketing, content and social workflows",
+  "Broader business integrations and data sources",
+  "More proactive business guidance and execution",
 ];
 
 export default function HomePage() {
@@ -133,13 +155,17 @@ export default function HomePage() {
       },
     ],
   };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* ------------------------------------------------ HERO */}
+
+      {/* ============================================================ */}
+      {/* HERO                                                         */}
+      {/* ============================================================ */}
       <section className="relative overflow-hidden bg-navy-950 text-white">
         <div aria-hidden className="hero-grid absolute inset-0" />
         <div
@@ -148,33 +174,36 @@ export default function HomePage() {
         />
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:px-8 lg:pt-24 lg:pb-28">
           <div>
-      <Eyebrow dark>AI-powered B2B sales platform · by ArdenzaTech</Eyebrow>
+            <p className="text-5xl font-bold tracking-tight text-gradient sm:text-6xl lg:text-7xl lg:leading-[1.05]">
+              ADERIQO
+            </p>
+            <div className="mt-3" />
+            <Eyebrow dark>AI-powered CRM · by ArdenzaTech</Eyebrow>
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-[3.6rem] lg:leading-[1.08]">
-              Your sales workflow shouldn&apos;t{" "}
-              <span className="text-gradient">live in ten different tools.</span>
+              Your business,{" "}
+              <span className="text-gradient">with intelligence built in.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-              Aderiqo brings your customers, pipeline, tasks, calendar, email, prospecting and
-              revenue intelligence into one connected sales workspace — with AI built directly into
-              the workflow.
+              Aderiqo brings your customers, sales pipeline, tasks, and business intelligence into one
+              connected workspace — with AI helping you understand what matters and what to do next.
             </p>
             <p className="mt-3 text-sm font-semibold tracking-wide text-slate-400 uppercase">
               CRM first. AI makes the CRM intelligent.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <PrimaryButton href="/demo" className="min-w-44 shadow-glow">
-                Book a demo
-              </PrimaryButton>
-              <SecondaryButton href="/early-access" dark className="min-w-44">
-                Join early access
-              </SecondaryButton>
+              <a
+                href="/early-access"
+                className="brand-gradient inline-flex min-w-44 items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:opacity-90"
+              >
+                Join early access <span aria-hidden>→</span>
+              </a>
+              <a
+                href="/product"
+                className="inline-flex min-w-44 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
+              >
+                Explore Aderiqo
+              </a>
             </div>
-            <Link
-              href="/ai"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-acyan transition hover:text-white"
-            >
-              Explore Aderiqo AI <span aria-hidden>→</span>
-            </Link>
           </div>
           <Reveal delay={150} className="animate-float-slow">
             <HeroMock />
@@ -189,7 +218,7 @@ export default function HomePage() {
             One workspace that brings together
           </p>
           <ul className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
-            {MODULES.map((m) => (
+            {["CRM", "AI", "Sales", "Prospecting", "Tasks", "Calendar", "Email", "Revenue Intelligence"].map((m) => (
               <li key={m} className="rounded-full border border-line bg-mist px-4 py-1.5 text-sm font-medium text-ink">
                 {m}
               </li>
@@ -199,28 +228,25 @@ export default function HomePage() {
       </div>
 
       {/* ---------------------------------------------------- PROBLEM */}
-      <Section dark>
+      <Section>
         <SectionHeading
           center
-          dark
-          eyebrow="Sound familiar?"
-          title="Your team spends the day managing the tools that are supposed to help them sell."
-          subtitle="Customer records in a spreadsheet. Conversations in inboxes. Follow-ups in someone's memory. When every piece of context sits in a different place, these moments happen every week:"
+          eyebrow="The problem"
+          title="Your tools don't know each other. Your business should."
+          subtitle="CRM, email, calendar, tasks, spreadsheets, messaging, marketing, social, analytics — the problem isn't a lack of tools. It's that none of them understand the whole business."
         />
         <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {MOMENTS.map((m, i) => (
             <Reveal key={m.q} delay={i * 60}>
-              <div className="h-full rounded-xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-semibold text-white">“{m.q}”</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{m.a}</p>
+              <div className="h-full rounded-xl border border-line bg-white p-5 shadow-card">
+                <p className="font-semibold text-ink">&ldquo;{m.q}&rdquo;</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.a}</p>
               </div>
             </Reveal>
           ))}
         </div>
-        <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-white/10 bg-white/[0.04] p-6">
-          <h3 className="text-sm font-semibold tracking-wide text-slate-400 uppercase">
-            The cost
-          </h3>
+        <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-line bg-mist p-6">
+          <h3 className="text-sm font-semibold tracking-wide text-ink-soft uppercase">The cost</h3>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
             {[
               "Salespeople waste time hunting for information",
@@ -228,7 +254,7 @@ export default function HomePage() {
               "Important details get lost between tools",
               "Teams duplicate the same work in different systems",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-sm text-slate-300">
+              <li key={item} className="flex items-start gap-2.5 text-sm text-ink-soft">
                 <span aria-hidden className="mt-0.5 text-amagenta">✕</span>
                 {item}
               </li>
@@ -238,15 +264,16 @@ export default function HomePage() {
       </Section>
 
       {/* --------------------------------------------------- SOLUTION */}
-      <Section>
+      <Section dark>
         <SectionHeading
           center
+          dark
           eyebrow="The solution"
           title="One workspace. One connected sales operation."
           subtitle="Aderiqo brings companies, contacts, opportunities, tasks, calendar, email, prospecting and revenue intelligence into one place — so the work connects instead of fragmenting."
         />
         <Reveal className="mt-12">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-line bg-gradient-to-b from-mist to-white p-6 shadow-card sm:p-8">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
             <ol className="space-y-3">
               {[
                 ["A contact becomes an opportunity", "the relationship turns into pipeline"],
@@ -257,12 +284,12 @@ export default function HomePage() {
                 ["AI helps you work with all of it", "plain language in, real CRM actions out"],
               ].map(([title, desc], i, arr) => (
                 <li key={title}>
-                  <div className="flex flex-col gap-1 rounded-xl border border-line bg-white px-5 py-4 shadow-card sm:flex-row sm:items-center sm:gap-4">
-                    <span className="shrink-0 text-sm font-bold text-ink">
+                  <div className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 sm:flex-row sm:items-center sm:gap-4">
+                    <span className="shrink-0 text-sm font-bold text-white">
                       <span aria-hidden className="brand-gradient mr-2 inline-block h-1.5 w-1.5 rounded-full" />
                       {title}
                     </span>
-                    <span className="text-sm text-ink-soft">{desc}</span>
+                    <span className="text-sm text-slate-400">{desc}</span>
                   </div>
                   {i < arr.length - 1 ? (
                     <div aria-hidden className="brand-gradient mx-auto my-2 h-px w-16 rounded-full" />
@@ -272,7 +299,7 @@ export default function HomePage() {
             </ol>
           </div>
         </Reveal>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ink-soft">
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-slate-400">
           Aderiqo doesn&apos;t claim to replace every tool you use. It stops forcing your team to work
           across disconnected systems for the same customer — by making the core sales workflow one
           connected workspace.
@@ -288,10 +315,16 @@ export default function HomePage() {
           subtitle="Not a feature list — a Tuesday."
         />
         <div className="mx-auto mt-12 max-w-3xl">
-          {DAY.map((d, i) => (
+          {[
+            { time: "9:00 AM", title: "See what needs your attention.", desc: "Open tasks, today's meetings and opportunities waiting on you — in one view, not five tabs." },
+            { time: "10:30 AM", title: "Update an opportunity without digging through screens.", desc: "Move a deal, log a note and set the next step on the same record your team already works from." },
+            { time: "11:30 AM", title: "Ask Aderiqo AI to do the busywork.", desc: "“Create a task to follow up with Acme Corp next Tuesday.” Plain language in, connected CRM records out." },
+            { time: "2:00 PM", title: "Review what actually moved today.", desc: "Pipeline activity, new conversations and changed deals — visible as they happen, not at month-end." },
+            { time: "4:30 PM", title: "End the day knowing nothing was dropped.", desc: "Every follow-up has an owner and a due date, tied to the customer it belongs to." },
+          ].map((d, i) => (
             <Reveal key={d.time} delay={i * 60}>
               <div className="relative flex gap-4 pb-6 sm:gap-6">
-                {i < DAY.length - 1 ? (
+                {i < 4 ? (
                   <div aria-hidden className="absolute top-10 bottom-0 left-[27px] w-px bg-line sm:left-[43px]" />
                 ) : null}
                 <div
@@ -311,13 +344,12 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------- AI-FIRST CRM */}
-      <Section dark>
+      <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
-              dark
               eyebrow="Aderiqo AI"
-              title="AI shouldn't sit beside your CRM. It should understand how your CRM works."
+              title="Your CRM knows the data. Aderiqo helps you understand it."
               subtitle="Aderiqo AI works inside the CRM — not as a chatbot bolted on. Describe what you need in plain language and it acts on your real customer records, step by step, with your confirmation before anything sensitive."
             />
             <div className="mt-6 grid gap-2 sm:grid-cols-2">
@@ -331,32 +363,19 @@ export default function HomePage() {
                 "Analyze pipeline & customers",
                 "Run multi-step workflows",
               ].map((cap) => (
-                <div key={cap} className="flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-200">
+                <div key={cap} className="flex items-center gap-2.5 rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink">
                   <span aria-hidden className="brand-gradient h-1.5 w-1.5 shrink-0 rounded-full" />
                   {cap}
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-sm text-slate-400">
+            <p className="mt-5 text-sm text-ink-soft">
               Aderiqo AI understands conversational context across the exchange — so “schedule a
               follow-up with him” knows exactly who “him” is. You stay in control: sensitive actions
               always require your confirmation.
             </p>
             <div className="mt-6">
-              <p className="mb-2.5 text-sm font-semibold text-slate-400">What that sounds like:</p>
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {AI_EXAMPLES.map((ex) => (
-                  <li
-                    key={ex}
-                    className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm italic text-slate-300"
-                  >
-                    “{ex}”
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-6">
-              <Link href="/ai" className="inline-flex items-center gap-2 font-semibold text-acyan transition hover:text-white">
+              <Link href="/ai" className="inline-flex items-center gap-2 font-semibold text-electric transition hover:text-electric-dark">
                 Ask Aderiqo AI on this site <span aria-hidden>→</span>
               </Link>
             </div>
@@ -367,48 +386,45 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ------------------------------------------------- HOW IT WORKS */}
+      <Section dark>
+        <SectionHeading
+          center
+          dark
+          eyebrow="How it works"
+          title="Up and running in four steps."
+        />
+        <div className="mx-auto mt-14 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map(([n, title, desc], i) => (
+            <Reveal key={n} delay={i * 90}>
+              <div className="relative">
+                <div
+                  aria-hidden
+                  className="brand-gradient mb-4 flex h-11 w-11 items-center justify-center rounded-full text-base font-bold text-white"
+                >
+                  {n}
+                </div>
+                <h3 className="text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       {/* ------------------------------------------- PRODUCT SHOWCASE */}
       <Section>
         <SectionHeading
           center
-          eyebrow="Product"
-          title="Everything your business runs on, in one place."
-          subtitle="From the first prospect to the closed deal — and everything in between."
+          eyebrow="Current product"
+          title="An AI-powered CRM, built properly."
+          subtitle="Aderiqo starts with disciplined customer data — companies, contacts, opportunities, pipeline, tasks, calendar and email — all linked, all searchable, all in service of the relationship."
         />
         <Reveal className="mt-12">
           <PipelineMock />
         </Reveal>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {[
-            {
-              group: "CRM",
-              icon: "🏢",
-              items: ["Companies", "Contacts", "Opportunities"],
-              desc: "Centralized records with relationship and revenue context on every account.",
-              href: "/crm",
-            },
-            {
-              group: "Execution",
-              icon: "⚡",
-              items: ["Tasks", "Calendar", "Emails"],
-              desc: "Follow-ups, meetings and communication connected to the customers they involve.",
-              href: "/tasks",
-            },
-            {
-              group: "Growth",
-              icon: "🎯",
-              items: ["Prospector", "Revenue Intelligence"],
-              desc: "Find the right companies and know what's happening in your pipeline.",
-              href: "/prospecting",
-            },
-            {
-              group: "Intelligence",
-              icon: "🤖",
-              items: ["Aderiqo AI", "Insights"],
-              desc: "Conversational CRM that creates records, answers questions and manages work with you.",
-              href: "/ai",
-            },
-          ].map((mod, i) => (
+          {MODULES.map((mod, i) => (
             <Reveal key={mod.group} delay={i * 60}>
               <Link
                 href={mod.href}
@@ -439,35 +455,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ------------------------------------------------------- CRM */}
-      <Section className="bg-mist">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Core CRM"
-              title="The CRM foundations, done properly."
-              subtitle="Aderiqo starts with disciplined customer data: companies, contacts, opportunities, tasks, calendar and email — all linked, all searchable, all in service of the relationship."
-            />
-            <CheckList
-              items={[
-                "Centralized company records with relationship and revenue context",
-                "Contact profiles connected to their company, deals and history",
-                "Opportunities with pipeline stages, value and ownership",
-                "Tasks with follow-ups, owners and due dates",
-                "Meetings and scheduling tied to real customer records",
-                "Customer email communication in context",
-              ]}
-              columns={2}
-            />
-          </Reveal>
-          <Reveal delay={120}>
-            <ContactsMock />
-          </Reveal>
-        </div>
-      </Section>
-
       {/* ----------------------------------------------- PROSPECTING */}
-      <Section>
+      <Section className="bg-mist">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal className="lg:order-2">
             <SectionHeading
@@ -492,45 +481,21 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={120} className="lg:order-1">
-            <div className="rounded-xl border border-line bg-white p-6 shadow-card">
-              <p className="text-xs font-semibold tracking-wide text-ink-soft uppercase">Prospect shortlist</p>
-              <div className="mt-4 space-y-2.5">
-                {[
-                  ["Acme Industries", "Manufacturing · 250 employees", "Strong fit"],
-                  ["Northwind Group", "Logistics · 120 employees", "Good fit"],
-                  ["Contoso Retail", "Retail · 80 employees", "Good fit"],
-                ].map(([name, meta, fit]) => (
-                  <div key={name} className="flex items-center justify-between rounded-lg border border-line bg-mist px-4 py-3">
-                    <div>
-                      <p className="text-sm font-semibold text-ink">{name}</p>
-                      <p className="text-xs text-ink-soft">{meta}</p>
-                    </div>
-                    <span className="rounded-full bg-electric/10 px-3 py-1 text-xs font-semibold text-electric">
-                      {fit}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-4 text-xs text-ink-soft">
-                Illustrative view of the Prospector in the Aderiqo application.
-              </p>
-            </div>
+            <ContactsMock />
           </Reveal>
         </div>
       </Section>
 
       {/* ----------------------------------------- REVENUE INTELLIGENCE */}
-      <Section dark>
+      <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
-              dark
               eyebrow="Revenue intelligence"
               title="Know what's happening in your pipeline before it becomes a problem."
               subtitle="Aderiqo turns everyday CRM activity into business insight — pipeline visibility, revenue trends, opportunity analysis and sales performance in one intelligence layer."
             />
             <CheckList
-              dark
               items={[
                 "Pipeline visibility across every stage and owner",
                 "Revenue trends over time",
@@ -540,7 +505,7 @@ export default function HomePage() {
               ]}
             />
             <div className="mt-6">
-              <Link href="/intelligence" className="font-semibold text-acyan hover:text-white">
+              <Link href="/intelligence" className="font-semibold text-electric hover:underline">
                 Explore revenue intelligence →
               </Link>
             </div>
@@ -551,8 +516,71 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ------------------------------------------------ WHO IT'S FOR */}
+      {/* ------------------------------------------------- THE FUTURE ASSISTANT */}
+      <Section dark>
+        <SectionHeading
+          center
+          dark
+          eyebrow="The future"
+          title="From CRM to your business assistant."
+          subtitle="Today Aderiqo helps you manage your business. Our vision is to help you run more of it — with an intelligent layer that understands your work and acts with you."
+        />
+        <div className="mx-auto mt-12 max-w-3xl">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+            <p className="text-sm font-semibold tracking-wide text-acyan uppercase mb-4">Vision examples</p>
+            <div className="space-y-4">
+              {FUTURE_EXAMPLES.map((ex) => (
+                <div key={ex} className="flex items-start gap-3">
+                  <span aria-hidden className="brand-gradient mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white">
+                    ✦
+                  </span>
+                  <p className="text-sm italic text-slate-300">&ldquo;{ex}&rdquo;</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-slate-500">
+              These are directional examples of where Aderiqo is heading. They are not currently available
+              functionality. Early Access members will help shape what comes next.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* --------------------------------------------- SOCIAL + CONTENT VISION */}
       <Section>
+        <SectionHeading
+          center
+          eyebrow="Coming next"
+          title="Your business should be creating momentum while you're running it."
+          subtitle="A future capability: Aderiqo can help turn your business activity into content — drafts, posts, and social presence — while you focus on the work itself."
+        />
+        <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-line bg-white p-6 shadow-card sm:p-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-ink">User request</p>
+              <p className="mt-1 text-sm text-ink-soft italic">
+                &ldquo;Turn this week's customer wins into three LinkedIn posts.&rdquo;
+              </p>
+            </div>
+            <div aria-hidden className="hidden sm:block brand-gradient h-px w-8 rotate-90 self-center" />
+            <div aria-hidden className="sm:hidden brand-gradient h-px w-8 self-center" />
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-electric">Aderiqo response</p>
+              <p className="mt-1 text-sm text-ink-soft">
+                &ldquo;Here are three drafts based on your recent activity — customer wins, new pipeline
+                movement, and upcoming meetings. Review and send when ready.&rdquo;
+              </p>
+            </div>
+          </div>
+          <p className="mt-6 text-xs text-ink-soft">
+            Content and social media assistance is a planned capability. It is not currently available
+            in Early Access.
+          </p>
+        </div>
+      </Section>
+
+      {/* --------------------------------------------------- AUDIENCES */}
+      <Section className="bg-mist">
         <SectionHeading
           center
           eyebrow="Who Aderiqo is for"
@@ -573,102 +601,63 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ------------------------------------------------- BEFORE / AFTER */}
-      <Section dark>
+      {/* ----------------------------------------- CURRENT VS COMING NEXT */}
+      <Section>
         <SectionHeading
           center
-          dark
-          eyebrow="Before / after"
-          title="From disconnected systems to a connected operating layer."
-          subtitle="The point isn't that Aderiqo replaces every tool you use — it's that the same customer stops living in eight different places."
+          eyebrow="Roadmap"
+          title="What's available now, what's coming next, and where we're headed."
+          subtitle="We're building Aderiqo in the open with early customers. Here is the current state and the direction."
         />
-        <Reveal className="mt-12">
-          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
-              <h3 className="text-sm font-semibold tracking-wide text-slate-400 uppercase">
-                Before — the same customer, everywhere
-              </h3>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {[...FRAGMENTS.map((f) => f.label), "Manual updates", "Lost context"].map((step, i, arr) => (
-                  <span key={step} className="flex items-center gap-2">
-                    <span className="rounded-lg border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-medium text-slate-300">
-                      {step}
-                    </span>
-                    {i < arr.length - 1 ? <span aria-hidden className="text-slate-600">→</span> : null}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                Every handoff between tools loses context — and someone has to manually keep them in
-                sync.
-              </p>
-            </div>
-            <div className="relative rounded-xl border border-white/15 bg-navy-900 p-6 shadow-lift">
-              <div aria-hidden className="brand-gradient absolute top-0 left-0 h-full w-0.5" />
-              <h3 className="text-sm font-semibold tracking-wide text-acyan uppercase">
-                After — one connected workflow
-              </h3>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {["Customer", "Opportunity", "Task", "Calendar", "Email", "Prospecting", "Revenue intelligence", "AI assistance"].map((step, i, arr) => (
-                  <span key={step} className="flex items-center gap-2">
-                    <span className="rounded-lg border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white">
-                      {step}
-                    </span>
-                    {i < arr.length - 1 ? <span aria-hidden className="brand-gradient bg-clip-text text-transparent">→</span> : null}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                Every step feeds the next on the same record — so context is never lost and follow-up
-                is part of the workflow.
-              </p>
-            </div>
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+          <div className="rounded-xl border border-line bg-white p-6 shadow-card">
+            <p className="text-xs font-semibold tracking-wide text-electric uppercase mb-4">Current</p>
+            <ul className="space-y-3">
+              {CURRENT_CAPABILITIES.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink">
+                  <span aria-hidden className="brand-gradient mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[9px] font-bold text-white">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        </Reveal>
-      </Section>
-
-      {/* -------------------------------- RELATIONSHIP INTELLIGENCE */}
-      <Section dark>
-        <SectionHeading
-          center
-          dark
-          eyebrow="Relationship intelligence"
-          title="Every customer is a network. Aderiqo understands the whole graph."
-          subtitle="Companies, contacts, opportunities, tasks, meetings and emails are all related — and Aderiqo keeps those relationships visible so context is never lost."
-        />
-        <Reveal className="mt-12">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-3">
-            {[
-              ["Company", "Who they are, what they buy, how much they're worth"],
-              ["Contacts", "The people behind the account and their roles"],
-              ["Opportunities", "The revenue attached to those relationships"],
-              ["Tasks & meetings", "The work that moves deals forward"],
-              ["Emails", "The conversations that carry the context"],
-            ].map(([title, desc], i, arr) => (
-              <div key={title} className="w-full">
-                <div className="flex flex-col items-start gap-1 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 sm:flex-row sm:items-center sm:gap-4">
-                  <span className="w-40 shrink-0 text-sm font-bold text-white">{title}</span>
-                  <span className="text-sm text-slate-400">{desc}</span>
-                </div>
-                {i < arr.length - 1 ? (
-                  <div aria-hidden className="brand-gradient mx-auto mt-3 h-px w-16 rounded-full" />
-                ) : null}
-              </div>
-            ))}
+          <div className="rounded-xl border border-line bg-white p-6 shadow-card">
+            <p className="text-xs font-semibold tracking-wide text-acyan uppercase mb-4">Coming next</p>
+            <ul className="space-y-3">
+              {COMING_NEXT.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink">
+                  <span aria-hidden className="brand-gradient mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[9px] font-bold text-white">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        </Reveal>
+          <div className="rounded-xl border border-line bg-mist p-6 shadow-card">
+            <p className="text-xs font-semibold tracking-wide text-ink-soft uppercase mb-4">Long-term vision</p>
+            <ul className="space-y-3">
+              {LONG_TERM.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                  <span aria-hidden className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-line text-[9px] font-bold text-ink-soft">◈</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </Section>
 
       {/* -------------------------------------------------- SECURITY */}
-      <Section>
+      <Section dark>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
+              dark
               eyebrow="Security"
               title="Built with enterprise security principles."
               subtitle="Aderiqo is designed so your customer data stays yours — isolated, access-controlled and auditable."
             />
             <CheckList
+              dark
               items={[
                 "Secure authentication for every user",
                 "Organization-level isolation of customer data",
@@ -680,18 +669,18 @@ export default function HomePage() {
               ]}
             />
             <div className="mt-6">
-              <Link href="/security" className="font-semibold text-electric hover:underline">
+              <Link href="/security" className="font-semibold text-acyan hover:text-white transition">
                 Read about security →
               </Link>
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div className="rounded-xl border border-line bg-mist p-8">
+            <div className="rounded-xl border border-white/10 bg-white/[0.04] p-8">
               <div aria-hidden className="brand-gradient mb-5 h-12 w-12 rounded-xl" />
-              <p className="text-lg font-semibold text-ink">
+              <p className="text-lg font-semibold text-white">
                 Your data is organized, isolated and access-controlled.
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              <p className="mt-3 text-sm leading-relaxed text-slate-400">
                 Every company, contact and conversation in Aderiqo belongs to your organization.
                 Roles determine who sees what, and every sensitive action — including actions taken
                 through Aderiqo AI — is designed to be confirmed and auditable.
@@ -701,159 +690,75 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ---------------------------------------------- INTEGRATIONS */}
-      <Section className="bg-mist">
-        <SectionHeading
-          center
-          eyebrow="Integrations"
-          title="Connected to the tools your team already uses."
-          subtitle="Aderiqo connects prospecting data, email delivery and enrichment services directly into your CRM workflow."
-        />
-        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            ["Prospecting data", "Lead and company discovery services power the Prospector."],
-            ["Email enrichment", "Contact enrichment keeps records complete and current."],
-            ["Email verification", "Verification keeps your outreach list healthy."],
-            ["Email delivery", "Transactional email delivery for customer communication."],
-            ["Aderiqo AI", "AI is native to the platform — no external chat add-ons."],
-            ["API access", "Secure, authorized API access for connected workflows."],
-          ].map(([title, desc]) => (
-            <div key={title} className="rounded-xl border border-line bg-white p-5 shadow-card">
-              <p className="font-semibold text-ink">{title}</p>
-              <p className="mt-1.5 text-sm text-ink-soft">{desc}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/integrations" className="font-semibold text-electric hover:underline">
-            See how integrations work →
-          </Link>
-        </div>
-      </Section>
-
-      {/* ---------------------------------------------- WHY ADERIQO */}
+      {/* ---------------------------------------------- EARLY ACCESS */}
       <Section>
         <SectionHeading
           center
-          eyebrow="Why Aderiqo"
-          title="Less administration. More selling."
+          eyebrow="Early access"
+          title="Be part of what comes next."
+          subtitle="Aderiqo is in its final product refinement phase. Early Access members get the platform first, work directly with the team, and help shape the roadmap."
         />
-        <Reveal className="mt-12 overflow-hidden rounded-xl border border-line shadow-card">
-          <div className="grid text-sm sm:grid-cols-2">
-            <div className="bg-mist p-6 sm:p-8">
-              <h3 className="font-semibold text-ink-soft">A traditional CRM</h3>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "Manual data entry on every record",
-                  "Disconnected tools for email, tasks and reporting",
-                  "Too much navigation, too little selling",
-                  "Reactive reporting — insight arrives after the fact",
-                  "Automation limited to rigid rule builders",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-ink-soft">
-                    <span aria-hidden className="mt-0.5 text-slate-400">—</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative bg-navy-950 p-6 text-white sm:p-8">
-              <div aria-hidden className="brand-gradient absolute top-0 left-0 h-full w-0.5" />
-              <h3 className="font-semibold">Aderiqo</h3>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "Conversational workflows — AI does the data entry with you",
-                  "Connected customer context across the whole workspace",
-                  "One workspace instead of ten tabs",
-                  "Intelligent insights from live pipeline activity",
-                  "AI-assisted execution on real CRM records",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <span aria-hidden className="brand-gradient mt-0.5 h-1.5 w-1.5 rounded-full" />
-                    <span className="text-slate-200">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Reveal>
-      </Section>
-
-      {/* --------------------------------------------- HOW IT WORKS */}
-      <Section dark>
-        <SectionHeading
-          center
-          dark
-          eyebrow="How it works"
-          title="Up and running in four steps."
-        />
-        <div className="mx-auto mt-14 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
           {[
-            ["1", "Connect your business", "Create your organization and invite your team."],
-            ["2", "Bring relationships together", "Companies, contacts and opportunities in one workspace."],
-            ["3", "Let Aderiqo AI help", "Delegate CRM actions and multi-step workflows in plain language."],
-            ["4", "Turn activity into revenue", "Insights from real pipeline activity guide your next move."],
-          ].map(([n, title, desc], i) => (
-            <Reveal key={n} delay={i * 90}>
-              <div className="relative">
-                <div
-                  aria-hidden
-                  className="brand-gradient mb-4 flex h-11 w-11 items-center justify-center rounded-full text-base font-bold text-white"
-                >
-                  {n}
-                </div>
-                <h3 className="text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{desc}</p>
-              </div>
-            </Reveal>
+            "Access Aderiqo before wider launch",
+            "Test the product with your real workflows",
+            "Share feedback that shapes the roadmap",
+            "Receive onboarding and support from the Aderiqo team",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3 rounded-xl border border-line bg-white p-5 shadow-card">
+              <span aria-hidden className="brand-gradient mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white">
+                ✓
+              </span>
+              <span className="text-sm text-ink">{item}</span>
+            </div>
           ))}
         </div>
-      </Section>
-
-      {/* ------------------------------------------------------ DEMO */}
-      <Section className="bg-mist">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <SectionHeading
-              eyebrow="See Aderiqo in action"
-              title="A product tour, tailored to your business."
-              subtitle="In a guided demo we walk through the CRM, Aderiqo AI and revenue intelligence using your use cases — companies and contacts, pipeline, prospecting, tasks and reporting."
-            />
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryButton href="/demo" className="min-w-44">Book a demo</PrimaryButton>
-              <SecondaryButton href="/contact" className="min-w-44">Contact us</SecondaryButton>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <button
-              type="button"
-              onClick={undefined}
-              className="group relative block w-full cursor-default overflow-hidden rounded-xl border border-line bg-navy-950 p-10 text-center shadow-card"
-              aria-label="Product demo video placeholder"
-            >
-              <span
-                aria-hidden
-                className="brand-gradient mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-2xl text-white shadow-glow transition group-hover:scale-105"
-              >
-                ▶
-              </span>
-              <span className="block text-base font-semibold text-white">Aderiqo product tour</span>
-              <span className="mt-1.5 block text-sm text-slate-400">
-                Video coming soon — book a live demo today
-              </span>
-            </button>
-          </Reveal>
+        <div className="mt-10 flex flex-col items-center gap-4">
+          <a
+            href="/early-access"
+            className="brand-gradient inline-flex min-w-44 items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:opacity-90"
+          >
+            Join early access <span aria-hidden>→</span>
+          </a>
+          <p className="text-sm text-ink-soft">
+            No credit card required. Our team will be in touch when Aderiqo is ready for you.
+          </p>
         </div>
       </Section>
 
       {/* ------------------------------------------------- FINAL CTA */}
-      <p className="bg-navy-950 pt-6 text-center text-xs text-slate-500">
-        Aderiqo is built by ArdenzaTech — evolving from the platform formerly known as Clovexa.
-      </p>
-      <CtaBanner
-        title="Stop managing your sales operation across disconnected systems."
-        subtitle="See how Aderiqo brings your customer data, pipeline, tasks, calendar, email, prospecting and AI into one connected workspace."
-      />
+      <section className="relative overflow-hidden bg-navy-950 text-white">
+        <div
+          aria-hidden
+          className="brand-gradient absolute top-0 left-1/2 h-64 w-[60rem] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
+        />
+        <div className="relative mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+            Your business is already moving.
+          </h2>
+          <p className="mx-auto mt-4 text-2xl font-semibold text-gradient sm:text-3xl">Aderiqo is here to help you move smarter.</p>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">
+            Start with an AI-powered CRM built for how your team actually works. Help shape what comes next.
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href="/early-access"
+              className="brand-gradient inline-flex min-w-44 items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:opacity-90"
+            >
+              Join early access <span aria-hidden>→</span>
+            </a>
+            <a
+              href="/demo"
+              className="inline-flex min-w-44 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
+            >
+              Book a demo
+            </a>
+          </div>
+          <p className="mt-8 text-sm text-slate-400">
+            Aderiqo is built by ArdenzaTech — evolving from the platform formerly known as Clovexa.
+          </p>
+        </div>
+      </section>
     </>
   );
 }
