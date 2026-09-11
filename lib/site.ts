@@ -6,6 +6,12 @@ export const SITE_URL =
 /** Parent company website (informational/trust destination, not a conversion funnel). */
 export const ARDENZATECH_URL = "https://ardenzatech.com";
 
+/**
+ * When true, public Login CTAs show a "Coming Soon" modal instead of redirecting
+ * to the Aderiqo application. Flip to `false` when the app is ready for public access.
+ */
+export const APP_COMING_SOON = true;
+
 export function appPath(path: string) {
   return `${APP_URL}${path}`;
 }

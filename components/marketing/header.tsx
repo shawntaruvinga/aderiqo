@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { NAV, appPath } from "@/lib/site";
+import { APP_COMING_SOON, NAV, appPath } from "@/lib/site";
+import { ComingSoonModal } from "./coming-soon-modal";
 import { Logo } from "./ui";
 
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export function Header() {
       >
         <Logo dark />
         <DesktopNav open={open} setOpen={setOpen} />
-        <DesktopCtas />
+        <DesktopCtas setLoginOpen={setLoginOpen} />
         <button
           type="button"
           className="flex h-10 w-10 items-center justify-center rounded-md lg:hidden"
@@ -68,7 +70,8 @@ export function Header() {
           </svg>
         </button>
       </nav>
-      {mobileOpen ? <MobileMenu onNavigate={() => setMobileOpen(false)} /> : null}
+      {mobileOpen ? <MobileMenu onNavigate={() => setMobileOpen(false)} setLoginOpen={setLoginOpen} /> : null}
+      <ComingSoonModal open={loginOpen} onClose={() => setLoginOpen(false)} />
     </header>
   );
 }
@@ -133,15 +136,25 @@ function DesktopNav({ open, setOpen }: { open: string | null; setOpen: (v: strin
   );
 }
 
-function DesktopCtas() {
+function DesktopCtas({ setLoginOpen }: { setLoginOpen: (v: boolean) => void }) {
   return (
     <div className="hidden items-center gap-3 lg:flex">
-      <a
-        href={appPath("/login")}
-        className="rounded-md px-3 py-2 text-sm font-medium text-slate-200 transition hover:text-white"
-      >
-        Login
-      </a>
+      {APP_COMING_SOON ? (
+        <button
+          type="button"
+          onClick={() => setLoginOpen(true)}
+          className="rounded-md px-3 py-2 text-sm font-medium text-slate-200 transition hover:text-white"
+        >
+          Login
+        </button>
+      ) : (
+        <a
+          href={appPath("/login")}
+          className="rounded-md px-3 py-2 text-sm font-medium text-slate-200 transition hover:text-white"
+        >
+          Login
+        </a>
+      )}
       <Link
         href="/demo"
         className="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
@@ -158,7 +171,7 @@ function DesktopCtas() {
   );
 }
 
-function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
+function MobileMenu({ onNavigate, setLoginOpen }: { onNavigate: () => void; setLoginOpen: (v: boolean) => void }) {
   const [section, setSection] = useState<string | null>(null);
   return (
     <div className="border-t border-white/10 bg-navy-950 lg:hidden">
@@ -211,12 +224,22 @@ function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
           ))}
         </ul>
         <div className="mt-5 flex flex-col gap-3 border-t border-white/10 pt-5 pb-6">
-          <a
-            href={appPath("/login")}
-            className="rounded-lg border border-white/25 px-4 py-3 text-center text-sm font-semibold text-white"
-          >
-            Login
-          </a>
+          {APP_COMING_SOON ? (
+            <button
+              type="button"
+              onClick={() => setLoginOpen(true)}
+              className="rounded-lg border border-white/25 px-4 py-3 text-center text-sm font-semibold text-white"
+            >
+              Login
+            </button>
+          ) : (
+            <a
+              href={appPath("/login")}
+              className="rounded-lg border border-white/25 px-4 py-3 text-center text-sm font-semibold text-white"
+            >
+              Login
+            </a>
+          )}
           <Link
             href="/demo"
             onClick={onNavigate}

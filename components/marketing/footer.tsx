@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import { FOOTER_LINKS, appPath, ARDENZATECH_URL } from "@/lib/site";
+import { FOOTER_LINKS, appPath, APP_COMING_SOON, ARDENZATECH_URL } from "@/lib/site";
+import { ComingSoonModal } from "./coming-soon-modal";
 import { Logo } from "./ui";
+import { useState } from "react";
 
 export function Footer() {
+  const [loginOpen, setLoginOpen] = useState(false);
   return (
     <footer className="bg-navy-950 text-slate-300">
       <div className="mx-auto w-full max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
@@ -52,12 +57,23 @@ export function Footer() {
             <Link href="/terms" className="text-sm text-slate-500 transition hover:text-white">
               Terms
             </Link>
-            <a href={appPath("/login")} className="text-sm text-slate-500 transition hover:text-white">
-              Login
-            </a>
+            {APP_COMING_SOON ? (
+              <button
+                type="button"
+                onClick={() => setLoginOpen(true)}
+                className="text-sm text-slate-500 transition hover:text-white"
+              >
+                Login
+              </button>
+            ) : (
+              <a href={appPath("/login")} className="text-sm text-slate-500 transition hover:text-white">
+                Login
+              </a>
+            )}
           </div>
         </div>
       </div>
+      <ComingSoonModal open={loginOpen} onClose={() => setLoginOpen(false)} />
     </footer>
   );
 }
